@@ -1,0 +1,15 @@
+services:
+  tsr:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - TEMP_PATH=/app/temp
+      - FINAL_PATH=/app/final
+    volumes:
+      - recordings_temp:/app/temp
+      - recordings_final:/app/final
+
+volumes:
+  recordings_temp:
+  recordings_final:
